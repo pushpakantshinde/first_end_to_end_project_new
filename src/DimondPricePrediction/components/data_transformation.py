@@ -22,6 +22,7 @@ class DataTransformationConfig:
 class DataTransformation:
     def __init__(self):
         self.data_transformation_config=DataTransformationConfig()
+
         
     
     def get_data_transformation(self):
@@ -45,6 +46,7 @@ class DataTransformation:
                 steps=[
                 ('imputer',SimpleImputer(strategy='median')),
                 ('scaler',StandardScaler())
+
                 ]
 
             )
@@ -56,6 +58,7 @@ class DataTransformation:
                 ('ordinalencoder',OrdinalEncoder(categories=[cut_categories,color_categories,clarity_categories])),
                 ('scaler',StandardScaler())
                 ]
+
             )
             
             preprocessor=ColumnTransformer([
@@ -63,7 +66,11 @@ class DataTransformation:
             ('cat_pipeline',cat_pipeline,categorical_cols)
             ])
             
-            return preprocessor     
+            return preprocessor
+            
+
+            
+            
         
         except Exception as e:
             logging.info("Exception occured in the initiate_datatransformation")

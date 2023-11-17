@@ -1,4 +1,3 @@
-
 import pandas as pd
 import numpy as np
 from src.DimondPricePrediction.logger import logging
@@ -42,8 +41,6 @@ class DataIngestion:
             test_data.to_csv(self.ingestion_config.test_data_path,index=False)
             
             logging.info("data ingestion part completed")
-
-            #logging.info("data ingestion part completed")
             
             return (
                  
@@ -57,4 +54,3 @@ class DataIngestion:
            logging.info("exception during occured at data ingestion stage")
            raise customexception(e,sys)
     
-
